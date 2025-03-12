@@ -24,23 +24,23 @@ jobs:
       - name: Disk space
         run: |
           echo "## Disk space" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
           df -m >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
 
       # Runs a single command using the runners shell
       - name: Hostname
         run: |
           echo "## Hostname" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
           hostname -f >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
 
       # Runs a single command using the runners shell
       - name: User
         run: |
           echo "## Whoami" >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
           whoami >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
+          echo "> " >> $GITHUB_STEP_SUMMARY
 
