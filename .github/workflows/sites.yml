@@ -60,3 +60,8 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
           ddev-fqdns: ${{ matrix.domains }}
+
+      - name: Status
+        run: |
+          cd ${{ matrix.path }}
+          ddev status
