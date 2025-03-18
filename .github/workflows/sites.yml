@@ -31,10 +31,10 @@ jobs:
             domains: "craftysquirrels.net,live.craftysquirrels.net"
             git_reference: "main"
 
-    #          - name: dev
-    #            path: "Sites/${{ github.repository }}/dev"
-    #            domains: "dev.ci.thinkdrop.net"
-    #            git_reference: main
+          - name: dev
+            path: "Sites/${{ github.repository }}/dev"
+            domains: "dev.craftysquirrels.net"
+            git_reference: feature/ddev-runner
 
     steps:
 
