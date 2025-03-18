@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8225dcc9bf996f4489b38487e90fe336",
+    "content-hash": "d4e0f4595f9be82b14d7025ffff9c742",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2535,6 +2535,114 @@
                 "source": "https://git.drupalcode.org/project/checklistapi",
                 "issues": "https://www.drupal.org/project/issues/checklistapi"
             }
+        },
+        {
+            "name": "drupal/cms",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/cms.git",
+                "reference": "8bf16caf3bc38d1a426d679aa970a998b38629af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fcms/repository/archive.zip?sha=8bf16caf3bc38d1a426d679aa970a998b38629af",
+                "reference": "8bf16caf3bc38d1a426d679aa970a998b38629af",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "^2.3",
+                "drupal/core-composer-scaffold": "^11.1.1",
+                "drupal/core-project-message": "^11.1.1",
+                "drupal/core-recommended": "^11.1.1",
+                "drupal/drupal_cms_accessibility_tools": "~1.0.0",
+                "drupal/drupal_cms_ai": "~1.0.2",
+                "drupal/drupal_cms_analytics": "~1.0.0",
+                "drupal/drupal_cms_blog": "~1.0.0",
+                "drupal/drupal_cms_case_study": "~1.0.0",
+                "drupal/drupal_cms_events": "~1.0.0",
+                "drupal/drupal_cms_forms": "~1.0.0",
+                "drupal/drupal_cms_news": "~1.0.1",
+                "drupal/drupal_cms_page": "~1.0.1",
+                "drupal/drupal_cms_person": "~1.0.2",
+                "drupal/drupal_cms_project": "~1.0.0",
+                "drupal/drupal_cms_seo_tools": "~1.0.2",
+                "drupal/drupal_cms_starter": "~1.0.2",
+                "drupal/project_browser": "@alpha",
+                "drupal/webform": "@beta",
+                "drush/drush": "^13"
+            },
+            "conflict": {
+                "drupal/drupal": "*"
+            },
+            "type": "project",
+            "extra": {
+                "drupal-scaffold": {
+                    "locations": {
+                        "web-root": "web/"
+                    }
+                },
+                "installer-paths": {
+                    "web/core": [
+                        "type:drupal-core"
+                    ],
+                    "recipes/{$name}": [
+                        "type:drupal-recipe"
+                    ],
+                    "web/libraries/{$name}": [
+                        "type:drupal-library"
+                    ],
+                    "web/themes/custom/{$name}": [
+                        "type:drupal-custom-theme"
+                    ],
+                    "web/modules/custom/{$name}": [
+                        "type:drupal-custom-module"
+                    ],
+                    "web/themes/contrib/{$name}": [
+                        "type:drupal-theme"
+                    ],
+                    "web/modules/contrib/{$name}": [
+                        "type:drupal-module"
+                    ],
+                    "web/profiles/custom/{$name}": [
+                        "type:drupal-custom-profile"
+                    ],
+                    "web/profiles/contrib/{$name}": [
+                        "type:drupal-profile"
+                    ],
+                    "drush/Commands/contrib/{$name}": [
+                        "type:drupal-drush"
+                    ]
+                },
+                "drupal-core-project-message": {
+                    "include-keys": [
+                        "homepage",
+                        "support"
+                    ],
+                    "post-create-project-cmd-message": [
+                        "<bg=blue;fg=white>                                                   </>",
+                        "<bg=blue;fg=white>  Congratulations, you’ve installed Drupal CMS!    </>",
+                        "<bg=blue;fg=white>                                                   </>",
+                        "",
+                        "<bg=yellow;fg=black>Next steps</>:",
+                        "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
+                        "  * Get support: https://drupal.org/support",
+                        "  * Get involved with the Drupal community: https://drupal.org/getting-involved"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Drupal CMS is a ready-to-use platform built on Drupal core, offering smart defaults to get started quickly and enterprise-grade tools for marketers, designers, and content creators.",
+            "homepage": "https://www.drupal.org/project/drupal",
+            "support": {
+                "chat": "https://drupal.org/node/314178",
+                "docs": "https://drupal.org/docs/user_guide/en/index.html",
+                "source": "https://git.drupalcode.org/project/cms/-/tree/1.0.2"
+            },
+            "time": "2025-02-05T11:25:08+00:00"
         },
         {
             "name": "drupal/coffee",
@@ -14616,5 +14724,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }
