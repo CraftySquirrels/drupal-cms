@@ -1,0 +1,59 @@
+name: Deploy Environments
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - released
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to ${{ matrix.name }}
+    environment:
+      name: craftysquirrels.${{ matrix.name }}
+      url: http://${{ matrix.name }}.craftysquirrels.net
+
+    runs-on: craftysquirrels@server.craftysquirrels.com
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+
+          - name: live
+            path: "Sites/${{ github.repository }}/live"
+            domains: "craftysquirrels.net,live.craftysquirrels.net"
+            git_reference: "main"
+
+    #          - name: dev
+    #            path: "Sites/${{ github.repository }}/dev"
+    #            domains: "dev.ci.thinkdrop.net"
+    #            git_reference: main
+
+    steps:
+
+      - name: Deploy site
+        uses: operations-project/site-runner-ddev@main
+        with:
+          git-reference: ${{ matrix.git_reference }}
+          path: ${{ matrix.path }}
+
+          # Sync when name == dev
+          sync: "${{ matrix.name == 'dev' }}"
+          sync-command: |
+            ddev drush @live sql:dump > database.sql
+            ddev drush sql:query --file ../database.sql
+
+          # Remove this after the env is created so live sites don't run ddev start.
+          # ddev-start: "${{ matrix.name == 'dev' }}"
+          ddev-project-name: "craftysquirrels.${{ matrix.name }}"
+
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          ddev-fqdns: ${{ matrix.domains }}
