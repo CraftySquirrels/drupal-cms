@@ -28,12 +28,12 @@ jobs:
 
           - name: live
             path: "Sites/${{ github.repository }}/live"
-            domains: "craftysquirrels.net,live.craftysquirrels.net"
+            domains: "newnew.page,live.newnew.page"
             git_reference: "main"
 
           - name: dev
             path: "Sites/${{ github.repository }}/dev"
-            domains: "dev.craftysquirrels.net"
+            domains: "dev.newnew.page"
             git_reference: feature/ddev-runner
 
     steps:
