@@ -44,6 +44,8 @@ jobs:
           git-reference: ${{ matrix.git_reference }}
           path: ${{ matrix.path }}
 
+          update-command: "echo 'skip update, not installed'."
+
           # Sync when name == dev
           sync: "${{ matrix.name == 'dev' }}"
           sync-command: |
