@@ -4,8 +4,11 @@ docroot: web
 php_version: "8.3"
 webserver_type: nginx-fpm
 xdebug_enabled: false
-additional_hostnames: []
-additional_fqdns: []
+additional_hostnames:
+  - newnew
+additional_fqdns:
+  - newnew.page
+  - www.newnew.page
 database:
     type: mariadb
     version: "10.11"
