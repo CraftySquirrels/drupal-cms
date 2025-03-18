@@ -1,3 +1,19 @@
+# CraftySquirrels.net
+
+https://github.com/CraftySquirrels/drupal-cms
+
+craftysquirrels.net
+
+
+## Server
+
+We are using a trial google cloud server under jon's account.
+
+34.75.182.217
+
+
+==================
+
 # Drupal CMS
 
 Drupal CMS is a fast-moving open source product that enables site builders to easily create new Drupal sites and extend them with smart defaults, all using their browser.
