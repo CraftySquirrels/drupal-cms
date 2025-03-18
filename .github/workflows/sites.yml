@@ -63,5 +63,5 @@ jobs:
 
       - name: Status
         run: |
-          cd ${{ matrix.path }}
+          cd ~/${{ matrix.path }}
           ddev status
