@@ -47,10 +47,10 @@ jobs:
           update-command: "echo 'skip update, not installed'."
 
           # Sync when name == dev
-          sync: "${{ matrix.name == 'dev' }}"
-          sync-command: |
-            ddev drush @live sql:dump > database.sql
-            ddev drush sql:query --file ../database.sql
+#          sync: "${{ matrix.name == 'dev' }}"
+#          sync-command: |
+#            ddev drush @live sql:dump > database.sql
+#            ddev drush sql:query --file ../database.sql
 
           # Remove this after the env is created so live sites don't run ddev start.
           # ddev-start: "${{ matrix.name == 'dev' }}"
