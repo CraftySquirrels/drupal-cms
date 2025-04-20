@@ -1,0 +1,23 @@
+uuid: 897c45ba-f07a-489f-be5c-2185ba334fa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_media_org
+    - node.type.organization
+  module:
+    - link
+id: node.organization.field_social_media_org
+field_name: field_social_media_org
+entity_type: node
+bundle: organization
+label: 'Social Media'
+description: 'Links to Social Media for Organization'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

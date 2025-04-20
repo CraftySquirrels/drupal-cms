@@ -1,0 +1,19 @@
+uuid: 921838aa-56f3-47a2-86f3-51ed28ed4af6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_hours_of_operation
+field_name: field_hours_of_operation
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,18 @@
+uuid: 412e6dd9-6a99-4eff-9802-9bfa7dc7649d
+langcode: en
+status: true
+dependencies:
+  module:
+    - klaro
+    - media
+    - system
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'use klaro'
+  - 'view media'

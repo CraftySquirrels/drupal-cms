@@ -1,0 +1,19 @@
+uuid: 304d7df0-6747-43e3-a278-a5de35d32a8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_about_org
+    - node.type.organization
+id: node.organization.field_about_org
+field_name: field_about_org
+entity_type: node
+bundle: organization
+label: 'About Organization'
+description: 'Info about the Organization'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

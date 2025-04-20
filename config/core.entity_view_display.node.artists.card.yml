@@ -1,0 +1,29 @@
+uuid: c30dce90-8e40-4b9d-af60-12d82b08a678
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.artists.field_about
+    - field.field.node.artists.field_social_media
+    - node.type.artists
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.artists.card
+targetEntityType: node
+bundle: artists
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_about: true
+  field_social_media: true

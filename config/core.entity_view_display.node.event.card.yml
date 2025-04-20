@@ -1,0 +1,110 @@
+uuid: 94de152e-d33e-4485-9609-30bcf4d78b3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.event.ai_automator_status
+    - field.field.node.event.field_artists
+    - field.field.node.event.field_content
+    - field.field.node.event.field_description
+    - field.field.node.event.field_event__date
+    - field.field.node.event.field_event__file
+    - field.field.node.event.field_event__link
+    - field.field.node.event.field_event__location_address
+    - field.field.node.event.field_event__location_name
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_geofield
+    - field.field.node.event.field_organization
+    - field.field.node.event.field_related
+    - field.field.node.event.field_tags
+    - field.field.node.event.field_venue
+    - node.type.event
+  module:
+    - layout_builder
+    - media
+    - smart_date
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: Y0gOoIxlI_sZCkFBGsSvlCk72dJbrqKwGB0jkVKMM3c
+id: node.event.card
+targetEntityType: node
+bundle: event
+mode: card
+content:
+  field_artists:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_event__date:
+    type: smartdate_default
+    label: visually_hidden
+    settings:
+      timezone_override: ''
+      format_type: medium
+      format: default
+      force_chronological: false
+      add_classes: false
+      time_wrapper: true
+      localize: false
+      parts:
+        - start
+        - end
+      duration:
+        separator: ' | '
+        unit: ''
+        decimals: 2
+        suffix: h
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_featured_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_venue:
+    type: entity_reference_label
+    label: visually_hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  ai_automator_status: true
+  content_moderation_control: true
+  field_content: true
+  field_event__file: true
+  field_event__link: true
+  field_event__location_address: true
+  field_event__location_name: true
+  field_event_date: true
+  field_geofield: true
+  field_organization: true
+  field_related: true
+  field_tags: true
+  langcode: true
+  links: true

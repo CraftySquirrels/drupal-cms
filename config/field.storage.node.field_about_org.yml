@@ -1,0 +1,19 @@
+uuid: dd45916e-19f0-431f-8faa-b43a74bcb9e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_about_org
+field_name: field_about_org
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

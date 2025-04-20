@@ -1,0 +1,19 @@
+uuid: 46eeba29-0490-44a0-b78a-79f68119ede1
+langcode: en
+status: true
+dependencies:
+  module:
+    - ai_automators
+    - link
+id: automator_chain.field_content_source_link
+field_name: field_content_source_link
+entity_type: automator_chain
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
