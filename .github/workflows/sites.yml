@@ -28,7 +28,7 @@ jobs:
 
           - name: live
             path: "Sites/${{ github.repository }}/live"
-            domains: "newnew.page,live.newnew.page"
+            domains: "newnew.page,live.newnew.page,admin.newnew.page"
             git_reference: "released"
 
           - name: dev
