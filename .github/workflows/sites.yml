@@ -64,4 +64,4 @@ jobs:
       - name: Status
         run: |
           cd ~/${{ matrix.path }}
-          ddev status
+          ddev status  >> $GITHUB_STEP_SUMMARY
