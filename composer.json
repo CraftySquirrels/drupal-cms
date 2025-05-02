@@ -38,6 +38,7 @@
         "drupal/drupal_cms_seo_tools": "~1.0.2",
         "drupal/drupal_cms_starter": "~1.0.2",
         "drupal/eca": "2.1.6",
+        "drupal/inline_entity_form": "^3.0@RC",
         "drupal/klaro": "3.0.3",
         "drupal/project_browser": "@alpha",
         "drupal/smtp": "^1.4",
