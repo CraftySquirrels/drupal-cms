@@ -6,13 +6,7 @@
 #
 
 set -e
-#env
-echo "PWD: $(pwd)"
-
 if [[ -n "$SITE_ROOT" ]]; then
-
-  echo "Site root: $SITE_ROOT"
   cd $SITE_ROOT
-
 fi
 ddev drush "${@}"
