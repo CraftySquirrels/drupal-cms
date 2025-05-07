@@ -1,0 +1,167 @@
+uuid: cffaf121-e086-4db5-a5bf-a47ea8e2449c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.artists.field_about
+    - field.field.node.artists.field_social_media
+    - node.type.artists
+    - views.view.events
+  module:
+    - layout_builder
+    - layout_discovery
+    - link
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: toptop
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          37fdf6d9-d1f8-4503-a8f8-f22358bb487e:
+            uuid: 37fdf6d9-d1f8-4503-a8f8-f22358bb487e
+            region: second
+            configuration:
+              id: 'field_block:node:artists:field_about'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          7abd4960-aa4f-487b-b323-4f625958f3d9:
+            uuid: 7abd4960-aa4f-487b-b323-4f625958f3d9
+            region: first
+            configuration:
+              id: 'field_block:node:artists:title'
+              label: Name
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: inline
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e52c38ea-8d39-48ac-a02b-355f7e4ee8eb:
+            uuid: e52c38ea-8d39-48ac-a02b-355f7e4ee8eb
+            region: first
+            configuration:
+              id: 'field_block:node:artists:field_social_media'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: top
+          context_mapping: {  }
+        components:
+          cb2d3e55-7603-4d48-b99b-3b1efff2a157:
+            uuid: cb2d3e55-7603-4d48-b99b-3b1efff2a157
+            region: content
+            configuration:
+              id: 'views_block:events-block_6'
+              label: 'Past Events'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Past Events'
+              items_per_page: none
+            weight: 3
+            additional: {  }
+          86bc1a87-23bc-47af-803b-aa40e3e223a5:
+            uuid: 86bc1a87-23bc-47af-803b-aa40e3e223a5
+            region: content
+            configuration:
+              id: 'views_block:events-block_7'
+              label: 'Upcoming Events'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Upcoming Events'
+              items_per_page: none
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          4b7853e6-f6ad-49fc-a00c-0c97fe5c3f40:
+            uuid: 4b7853e6-f6ad-49fc-a00c-0c97fe5c3f40
+            region: content
+            configuration:
+              id: 'extra_field_block:node:artists:links'
+              label: Links
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: node.artists.default
+targetEntityType: node
+bundle: artists
+mode: default
+content:
+  field_about:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_social_media:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  layout_builder__layout: true

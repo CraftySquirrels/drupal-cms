@@ -1,0 +1,23 @@
+uuid: 2e00a885-a2fd-4820-ad61-082910660402
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_venue_social_media
+    - node.type.venue
+  module:
+    - link
+id: node.venue.field_venue_social_media
+field_name: field_venue_social_media
+entity_type: node
+bundle: venue
+label: 'Venue Social Media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

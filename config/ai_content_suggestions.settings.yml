@@ -1,0 +1,7 @@
+plugins:
+  moderate: openai__omni-moderation-latest
+  readability: anthropic__claude-3-5-sonnet-latest
+  summarise: anthropic__claude-3-5-sonnet-latest
+  taxonomy_suggest: anthropic__claude-3-5-sonnet-latest
+  title_suggest: anthropic__claude-3-5-sonnet-latest
+  tone: anthropic__claude-3-5-sonnet-latest

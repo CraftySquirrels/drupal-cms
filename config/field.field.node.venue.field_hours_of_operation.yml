@@ -1,0 +1,19 @@
+uuid: c4d58145-0295-47bc-b5c2-78958b3518df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hours_of_operation
+    - node.type.venue
+id: node.venue.field_hours_of_operation
+field_name: field_hours_of_operation
+entity_type: node
+bundle: venue
+label: 'Hours of Operation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,66 @@
+uuid: e8e5fedc-c7f9-4c54-b6ce-7ed5cc9b5a1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event.ai_automator_status
+    - field.field.node.event.field_artists
+    - field.field.node.event.field_content
+    - field.field.node.event.field_description
+    - field.field.node.event.field_event__date
+    - field.field.node.event.field_event__file
+    - field.field.node.event.field_event__link
+    - field.field.node.event.field_event__location_address
+    - field.field.node.event.field_event__location_name
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_geofield
+    - field.field.node.event.field_links
+    - field.field.node.event.field_organization
+    - field.field.node.event.field_related
+    - field.field.node.event.field_tags
+    - field.field.node.event.field_venue
+    - node.type.event
+  module:
+    - user
+_core:
+  default_config_hash: N8rJLgGAa_L-lMVhSb6lQp0iNdXSB7YkA4DztDzmD1I
+id: node.event.teaser
+targetEntityType: node
+bundle: event
+mode: teaser
+content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: small
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  ai_automator_status: true
+  content_moderation_control: true
+  field_artists: true
+  field_content: true
+  field_event__date: true
+  field_event__file: true
+  field_event__link: true
+  field_event__location_address: true
+  field_event__location_name: true
+  field_geofield: true
+  field_links: true
+  field_organization: true
+  field_related: true
+  field_tags: true
+  field_venue: true
+  langcode: true
+  links: true

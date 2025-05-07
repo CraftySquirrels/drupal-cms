@@ -1,0 +1,657 @@
+uuid: 2d812187-7dca-48a5-826b-d3fede33754c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.ai_automator_status
+    - field.field.node.event.field_artists
+    - field.field.node.event.field_content
+    - field.field.node.event.field_description
+    - field.field.node.event.field_event__date
+    - field.field.node.event.field_event__file
+    - field.field.node.event.field_event__link
+    - field.field.node.event.field_event__location_address
+    - field.field.node.event.field_event__location_name
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_geofield
+    - field.field.node.event.field_links
+    - field.field.node.event.field_organization
+    - field.field.node.event.field_related
+    - field.field.node.event.field_tags
+    - field.field.node.event.field_venue
+    - node.type.event
+  module:
+    - address
+    - layout_builder
+    - layout_discovery
+    - leaflet
+    - link
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: top
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          22d0cbb8-f3de-4f5b-868b-15767e599878:
+            uuid: 22d0cbb8-f3de-4f5b-868b-15767e599878
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_organization'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          8de7fbe9-c14e-40ac-b4c9-9c91353dfd31:
+            uuid: 8de7fbe9-c14e-40ac-b4c9-9c91353dfd31
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_featured_image'
+              label: 'Featured image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: 3_4_medium
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          7498e96b-7745-42fe-8d0e-f0608ac4088a:
+            uuid: 7498e96b-7745-42fe-8d0e-f0608ac4088a
+            region: second
+            configuration:
+              id: 'field_block:node:event:field_artists'
+              label: Artist
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: inline
+                settings:
+                  view_mode: card
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          1d117f5f-ca7b-42df-972d-0f78f7ef162f:
+            uuid: 1d117f5f-ca7b-42df-972d-0f78f7ef162f
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_event__date'
+              label: Date
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: smartdate_default
+                label: visually_hidden
+                settings:
+                  timezone_override: ''
+                  format: default
+                  force_chronological: false
+                  add_classes: false
+                  time_wrapper: true
+                  localize: false
+                  parts:
+                    start: start
+                    end: end
+                    duration: '0'
+                  duration:
+                    separator: ' | '
+                    unit: ''
+                    decimals: 2
+                    suffix: h
+                third_party_settings:
+                  date_augmenter:
+                    instances:
+                      status:
+                        addtocal: false
+                      weights:
+                        order:
+                          addtocal:
+                            weight: 0
+                      settings:
+                        addtocal:
+                          label: 'Add to calendar'
+                          event_title: ''
+                          location: ''
+                          description: ''
+                          retain_spacing: false
+                          icons: true
+                          max_desc: 60
+                          ellipsis: true
+                          past_events: false
+                          target: ''
+                          ignore_timezone_if_UTC: true
+                      augmenter_settings:
+                        settings__formatter__third_party_settings__date_augmenter__instances__augmenter_settings__active_tab: ''
+            weight: 3
+            additional: {  }
+          ef2dfd66-d192-41e6-9365-644e8bcf501a:
+            uuid: ef2dfd66-d192-41e6-9365-644e8bcf501a
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: toptop
+          context_mapping: {  }
+          column_widths: 67-33
+        components:
+          4deeb0f5-826b-45ea-b39a-50c5455f33e0:
+            uuid: 4deeb0f5-826b-45ea-b39a-50c5455f33e0
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_event__location_name'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          571a32bb-6a64-4f79-abe0-94c088053b43:
+            uuid: 571a32bb-6a64-4f79-abe0-94c088053b43
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          52ee9d2f-c684-4d33-8829-761de98f74b2:
+            uuid: 52ee9d2f-c684-4d33-8829-761de98f74b2
+            region: second
+            configuration:
+              id: 'field_block:node:event:field_venue'
+              label: Venue
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: above
+                settings:
+                  view_mode: card
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          b2e2d67c-a0e9-4e53-b2e0-e033fc893700:
+            uuid: b2e2d67c-a0e9-4e53-b2e0-e033fc893700
+            region: content
+            configuration:
+              id: 'extra_field_block:node:event:content_moderation_control'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 3
+            additional: {  }
+          fbfdfb77-ab6a-419d-b5c7-7f17ff48f315:
+            uuid: fbfdfb77-ab6a-419d-b5c7-7f17ff48f315
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event__location_address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          59084fb5-1efe-4ded-a1c1-4c7cc24f3d29:
+            uuid: 59084fb5-1efe-4ded-a1c1-4c7cc24f3d29
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_geofield'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: leaflet_formatter_default
+                label: hidden
+                settings:
+                  multiple_map: false
+                  leaflet_map: 'OSM Mapnik'
+                  height: 400
+                  height_unit: px
+                  hide_empty_map: true
+                  disable_wheel: false
+                  gesture_handling: false
+                  fitbounds_options: '{"padding":[0,0]}'
+                  reset_map:
+                    control: false
+                    options: '{"position":"topleft","title":"Reset View"}'
+                  map_scale:
+                    control: false
+                    options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+                  locate:
+                    control: false
+                    options: '{"position":"topright","setView":"untilPanOrZoom","returnToPrevBounds":true,"keepCurrentZoomLevel":true,"strings":{"title":"Locate my position"}}'
+                    automatic: false
+                  leaflet_tooltip:
+                    value: ''
+                    options: '{"permanent":false,"direction":"center"}'
+                  popup: false
+                  popup_content: ''
+                  leaflet_popup:
+                    control: '0'
+                    content: ''
+                    options: '{"maxWidth":"300","minWidth":"50","autoPan":true}'
+                  map_position:
+                    force: false
+                    center:
+                      lat: 0.0
+                      lon: 0.0
+                    zoomControlPosition: topleft
+                    zoom: 14
+                    minZoom: 1
+                    maxZoom: 20
+                    zoomFiner: 0
+                  weight: '0'
+                  icon:
+                    iconType: marker
+                    iconUrl: ''
+                    shadowUrl: ''
+                    className: ''
+                    iconSize:
+                      x: ''
+                      'y': ''
+                    iconAnchor:
+                      x: ''
+                      'y': ''
+                    shadowSize:
+                      x: ''
+                      'y': ''
+                    shadowAnchor:
+                      x: ''
+                      'y': ''
+                    popupAnchor:
+                      x: ''
+                      'y': ''
+                    html: '<div></div>'
+                    html_class: leaflet-map-divicon
+                    circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+                  leaflet_markercluster:
+                    control: false
+                    options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+                    excluded: ''
+                    include_path: false
+                  fullscreen:
+                    control: false
+                    options: '{"position":"topleft","pseudoFullscreen":false}'
+                  path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+                  feature_properties:
+                    values: ''
+                  geocoder:
+                    control: false
+                    settings:
+                      popup: false
+                      autocomplete:
+                        placeholder: 'Search Address'
+                        title: 'Search an Address on the Map'
+                      position: topright
+                      input_size: 20
+                      providers:
+                        nominatim:
+                          weight: 0
+                          checked: false
+                      min_terms: 4
+                      delay: 800
+                      zoom: 16
+                      options: ''
+                  map_lazy_load:
+                    lazy_load: true
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
+          1011aa1f-58fa-4458-919d-8c6ca87fadcd:
+            uuid: 1011aa1f-58fa-4458-919d-8c6ca87fadcd
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event__link'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: hidden
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          fb545a9e-c959-475e-af75-7abaf9d570d0:
+            uuid: fb545a9e-c959-475e-af75-7abaf9d570d0
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event__file'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 7
+            additional: {  }
+          a70b0a4f-588b-419d-a489-a4af8b32aa85:
+            uuid: a70b0a4f-588b-419d-a489-a4af8b32aa85
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_tags'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 8
+            additional: {  }
+          7a8aebd3-8620-4691-9e2f-2eb02c950449:
+            uuid: 7a8aebd3-8620-4691-9e2f-2eb02c950449
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_related'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: 2MYlJWbFeuVeYdGDZKTHzUPefPboqHP_UL83htoIJKg
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_artists:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_event__file:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_event__link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_event__location_address:
+    type: address_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_event__location_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 16_9_wide
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_geofield:
+    type: leaflet_formatter_default
+    label: hidden
+    settings:
+      multiple_map: false
+      leaflet_map: 'OSM Mapnik'
+      height: 400
+      height_unit: px
+      hide_empty_map: true
+      disable_wheel: false
+      gesture_handling: false
+      fitbounds_options: '{"padding":[0,0]}'
+      reset_map:
+        control: false
+        options: '{"position":"topleft","title":"Reset View"}'
+      map_scale:
+        control: false
+        options: '{"position":"bottomright","maxWidth":100,"metric":true,"imperial":false,"updateWhenIdle":false}'
+      locate:
+        control: false
+        options: '{"position":"topright","setView":"untilPanOrZoom","returnToPrevBounds":true,"keepCurrentZoomLevel":true,"strings":{"title":"Locate my position"}}'
+        automatic: false
+      leaflet_tooltip:
+        value: ''
+        options: '{"permanent":false,"direction":"center"}'
+      popup: false
+      popup_content: ''
+      leaflet_popup:
+        control: '0'
+        content: ''
+        options: '{"maxWidth":"300","minWidth":"50","autoPan":true}'
+      map_position:
+        force: false
+        center:
+          lat: 0.0
+          lon: 0.0
+        zoomControlPosition: topleft
+        zoom: 14
+        minZoom: 1
+        maxZoom: 20
+        zoomFiner: 0
+      weight: '0'
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+        excluded: ''
+        include_path: false
+      fullscreen:
+        control: false
+        options: '{"position":"topleft","pseudoFullscreen":false}'
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      feature_properties:
+        values: ''
+      geocoder:
+        control: false
+        settings:
+          popup: false
+          autocomplete:
+            placeholder: 'Search Address'
+            title: 'Search an Address on the Map'
+          position: topright
+          input_size: 20
+          providers:
+            nominatim:
+              weight: 0
+              checked: false
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          options: ''
+      map_lazy_load:
+        lazy_load: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 51
+    region: first
+  field_organization:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_related:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_tags:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_venue:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+hidden:
+  ai_automator_status: true
+  field_description: true
+  field_event__date: true
+  langcode: true
+  links: true

@@ -1,0 +1,33 @@
+uuid: f1d82fd1-4e4e-4a57-91f9-1d33790d5308
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_venuemedia
+    - media.type.document
+    - media.type.image
+    - media.type.svg_image
+    - node.type.venue
+id: node.venue.field_venuemedia
+field_name: field_venuemedia
+entity_type: node
+bundle: venue
+label: 'Venue Media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+      image: image
+      svg_image: svg_image
+    sort:
+      field: changed
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: document
+field_type: entity_reference

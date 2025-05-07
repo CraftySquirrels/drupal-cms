@@ -1,0 +1,31 @@
+uuid: d8c20d89-bdd9-4784-8567-b580b2963b50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_event__link
+id: node.event.field_event__link.default
+label: 'Link Default'
+rule: llm_link
+input_mode: base
+weight: 100
+worker_type: direct
+entity_type: node
+bundle: event
+field_name: field_event__link
+edit_mode: false
+base_field: revision_log
+prompt: ''
+token: ''
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_link
+  automator_mode: base
+  automator_base_field: revision_log
+  automator_prompt: ''
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'Link Default'
+  automator_weight: '100'
+  automator_worker_type: direct
+  automator_ai_provider: default_json

@@ -1,0 +1,270 @@
+uuid: 35b8aa03-47d4-4d36-9ee4-faf3ba970a45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.venue.field_address
+    - field.field.node.venue.field_email
+    - field.field.node.venue.field_hours_of_operation
+    - field.field.node.venue.field_links
+    - field.field.node.venue.field_phone
+    - field.field.node.venue.field_venue_social_media
+    - field.field.node.venue.field_venuemedia
+    - node.type.venue
+    - views.view.events
+  module:
+    - address
+    - layout_builder
+    - layout_discovery
+    - link
+    - telephone
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          dd092123-79a3-4980-b998-ef605f616c92:
+            uuid: dd092123-79a3-4980-b998-ef605f616c92
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_venuemedia'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: default
+                  link: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          1310aa6f-5238-4684-81a9-3f0b5c6f3faf:
+            uuid: 1310aa6f-5238-4684-81a9-3f0b5c6f3faf
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_address'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: address_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          80fdb68a-d6f7-4910-b7a1-4caa954be653:
+            uuid: 80fdb68a-d6f7-4910-b7a1-4caa954be653
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_phone'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: telephone_link
+                label: visually_hidden
+                settings:
+                  title: ''
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          590a93f4-2855-46ad-8b67-c260e851899f:
+            uuid: 590a93f4-2855-46ad-8b67-c260e851899f
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_email'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: email_mailto
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          854d4eff-6516-42f9-9c46-a7348294299c:
+            uuid: 854d4eff-6516-42f9-9c46-a7348294299c
+            region: content
+            configuration:
+              id: 'extra_field_block:node:venue:links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 8
+            additional: {  }
+          b8bb2038-bba3-4e25-a96e-17f1684f5140:
+            uuid: b8bb2038-bba3-4e25-a96e-17f1684f5140
+            region: content
+            configuration:
+              id: 'views_block:events-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping:
+                field_venue_target_id: layout_builder.entity
+              views_label: ''
+              items_per_page: none
+            weight: 9
+            additional: {  }
+          654ef7e5-7625-4313-a067-16c54fa5b627:
+            uuid: 654ef7e5-7625-4313-a067-16c54fa5b627
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_hours_of_operation'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 6
+            additional: {  }
+          a3e4f170-c8cc-4b9b-ba5c-8b1bc9b6250e:
+            uuid: a3e4f170-c8cc-4b9b-ba5c-8b1bc9b6250e
+            region: content
+            configuration:
+              id: 'views_block:events-block_2'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping:
+                field_venue_target_id: layout_builder.entity
+              views_label: ''
+              items_per_page: none
+            weight: 11
+            additional: {  }
+          4ef42b9b-10ab-4515-8a47-b4d044e4bd80:
+            uuid: 4ef42b9b-10ab-4515-8a47-b4d044e4bd80
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_venue_social_media'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 10
+            additional: {  }
+          630c1166-00b1-413d-a577-beb29bcca062:
+            uuid: 630c1166-00b1-413d-a577-beb29bcca062
+            region: content
+            configuration:
+              id: 'field_block:node:venue:field_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 12
+            additional: {  }
+        third_party_settings: {  }
+id: node.venue.default
+targetEntityType: node
+bundle: venue
+mode: default
+content:
+  field_address:
+    type: address_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_email:
+    type: email_mailto
+    label: visually_hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_events:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_hours_of_operation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_phone:
+    type: telephone_link
+    label: visually_hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_venue_social_media:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_venuemedia:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden: {  }

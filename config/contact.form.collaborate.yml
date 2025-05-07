@@ -1,0 +1,14 @@
+uuid: e76c7d40-5f7e-4c77-bcde-a07b36b6c67b
+langcode: en
+status: true
+dependencies: {  }
+id: collaborate
+label: Collaborate
+recipients:
+  - webmaestra@gmail.com
+  - jonpugh81@gmail.com
+  - thismagicmoment81@gmail.com
+reply: "Thanks for reaching out!\r\n\r\nWe'll be in touch."
+weight: 0
+message: "Thank you for contacting us about helping the NewNew grow. We'll reach out to you as soon as possible."
+redirect: /about-newburgh

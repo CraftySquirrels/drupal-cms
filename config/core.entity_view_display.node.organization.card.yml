@@ -1,0 +1,31 @@
+uuid: d86fe587-625a-4422-83c2-e8d615f9ccca
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.organization.field_about_org
+    - field.field.node.organization.field_social_media_org
+    - field.field.node.organization.layout_builder__layout
+    - node.type.organization
+  module:
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: node.organization.card
+targetEntityType: node
+bundle: organization
+mode: card
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_about_org: true
+  field_social_media_org: true
+  layout_builder__layout: true
