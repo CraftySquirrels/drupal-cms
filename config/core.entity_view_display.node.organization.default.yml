@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.organization.field_social_media_org
     - field.field.node.organization.layout_builder__layout
     - node.type.organization
-    - views.view.events
+    - views.view.newnew_events
   module:
     - layout_builder
     - layout_discovery
@@ -69,33 +69,40 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
-          fb346877-0440-40c5-b584-77fe9e441aa4:
-            uuid: fb346877-0440-40c5-b584-77fe9e441aa4
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: Events
+          context_mapping: {  }
+        components:
+          40c1d7a8-15ed-4306-9aff-589bfb116585:
+            uuid: 40c1d7a8-15ed-4306-9aff-589bfb116585
             region: content
             configuration:
-              id: 'views_block:events-block_3'
+              id: 'views_block:newnew_events-block_1'
               label: ''
               label_display: visible
               provider: views
               context_mapping:
-                field_organization_target_id: layout_builder.entity
+                nid: layout_builder.entity
               views_label: ''
-              items_per_page: none
-            weight: 3
+              items_per_page: '48'
+            weight: 0
             additional: {  }
-          f40b6b0d-8016-4fde-8a6d-9ca5cc4d7c3e:
-            uuid: f40b6b0d-8016-4fde-8a6d-9ca5cc4d7c3e
+          6839a65b-e2cd-4d02-9101-c3cfdedbb31e:
+            uuid: 6839a65b-e2cd-4d02-9101-c3cfdedbb31e
             region: content
             configuration:
-              id: 'views_block:events-block_4'
+              id: 'views_block:newnew_events-block_3'
               label: ''
               label_display: visible
               provider: views
               context_mapping:
-                field_organization_target_id: layout_builder.entity
+                nid: layout_builder.entity
               views_label: ''
-              items_per_page: none
-            weight: 4
+              items_per_page: '48'
+            weight: 1
             additional: {  }
         third_party_settings: {  }
 id: node.organization.default
@@ -128,4 +135,5 @@ content:
     weight: 100
     region: content
 hidden:
+  langcode: true
   layout_builder__layout: true

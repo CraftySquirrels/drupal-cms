@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+## Description: Import the live database and prepare this replica.
+## Usage: sync
+## Example: ddev sync
+
+set -
+echo "Sync the newnew."
+ddev drush status
+echo ""
+echo "I am about to destroy the site listed above."
+echo "Hit CTRL-C within the next 3 seconds to abort..."
+sleep 3
+
+echo "> drush sql:drop"
+ddev drush sql:drop --yes
+
+echo
+echo "> drush @live sql:dump > live.sql"
+ddev drush @live sql:dump > live.sql
+
+echo
+echo "> ddev import-db"
+ddev import-db --file live.sql
+
+echo
+echo "> ddev drush deploy."
+ddev drush deploy
+
+echo
+echo "> ddev drush en stage_file_proxy devel"
+ddev drush en stage_file_proxy devel --yes
+
+echo
+echo "> drush status"
+ddev drush status
+
+echo
+echo "Sync complete! Run 'ddev launch' to open the site in a browser, or 'ddev drush uli' to get a login link."

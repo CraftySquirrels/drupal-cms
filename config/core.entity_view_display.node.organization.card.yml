@@ -28,4 +28,5 @@ content:
 hidden:
   field_about_org: true
   field_social_media_org: true
+  langcode: true
   layout_builder__layout: true

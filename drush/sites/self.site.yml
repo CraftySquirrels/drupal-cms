@@ -8,7 +8,7 @@ live:
     SITE_ROOT: /home/craftysquirrels/Sites/CraftySquirrels/drupal-cms/live
   paths:
     # Setup /usr/local/bin/drush as a wrapper for ddev drush.
-    drush-script: drush
+    drush-script: ddrush
 
 #'*':
 #  uri: https://${env-name}.live.prod.vancouver.wsu.edu

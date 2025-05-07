@@ -902,3 +902,5 @@ if (getenv('IS_DDEV_PROJECT') == 'true' && file_exists(__DIR__ . '/settings.ddev
 $settings['config_exclude_modules'] = ['devel', 'stage_file_proxy', 'key'];
 $settings['config_sync_directory'] = '../config';
 
+$config['stage_file_proxy.settings']['origin'] = 'https://newnew.page';
+$config['stage_file_proxy.settings']['hotlink'] = true;
