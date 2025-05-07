@@ -1,0 +1,24 @@
+uuid: a739efef-9121-4f03-9262-2c8616f84b79
+langcode: en
+status: true
+dependencies: {  }
+id: G-WD0BJJKDJ9.680c3098491677.26108526
+label: G-WD0BJJKDJ9
+weight: 0
+tag_container_ids:
+  - G-WD0BJJKDJ9
+  - ''
+advanced_settings:
+  consent_mode: false
+dimensions_metrics: {  }
+conditions: {  }
+events:
+  login:
+    method: CMS
+  custom: {  }
+  sign_up:
+    method: CMS
+  generate_lead:
+    value: ''
+    currency: ''
+  search: {  }

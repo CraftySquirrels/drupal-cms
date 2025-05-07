@@ -8,13 +8,14 @@ dependencies:
     - field.field.node.event.field_artists
     - field.field.node.event.field_content
     - field.field.node.event.field_description
+    - field.field.node.event.field_event__date
     - field.field.node.event.field_event__file
     - field.field.node.event.field_event__link
     - field.field.node.event.field_event__location_address
     - field.field.node.event.field_event__location_name
-    - field.field.node.event.field_event_date
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_geofield
+    - field.field.node.event.field_links
     - field.field.node.event.field_organization
     - field.field.node.event.field_related
     - field.field.node.event.field_tags
@@ -50,12 +51,13 @@ hidden:
   content_moderation_control: true
   field_artists: true
   field_content: true
+  field_event__date: true
   field_event__file: true
   field_event__link: true
   field_event__location_address: true
   field_event__location_name: true
-  field_event_date: true
   field_geofield: true
+  field_links: true
   field_organization: true
   field_related: true
   field_tags: true

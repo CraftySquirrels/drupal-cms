@@ -12,9 +12,9 @@ dependencies:
     - field.field.node.event.field_event__link
     - field.field.node.event.field_event__location_address
     - field.field.node.event.field_event__location_name
-    - field.field.node.event.field_event_date
     - field.field.node.event.field_featured_image
     - field.field.node.event.field_geofield
+    - field.field.node.event.field_links
     - field.field.node.event.field_organization
     - field.field.node.event.field_related
     - field.field.node.event.field_tags
@@ -22,7 +22,6 @@ dependencies:
     - node.type.event
   module:
     - address
-    - datetime
     - layout_builder
     - layout_discovery
     - leaflet
@@ -56,23 +55,6 @@ third_party_settings:
                   link: true
                 third_party_settings: {  }
             weight: 1
-            additional: {  }
-          60ccd535-95e3-4df3-825e-ddd0edbf6120:
-            uuid: 60ccd535-95e3-4df3-825e-ddd0edbf6120
-            region: second
-            configuration:
-              id: 'field_block:node:event:field_event_date'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: datetime_default
-                label: above
-                settings:
-                  timezone_override: ''
-                  format_type: medium
-                third_party_settings: {  }
-            weight: 2
             additional: {  }
           8de7fbe9-c14e-40ac-b4c9-9c91353dfd31:
             uuid: 8de7fbe9-c14e-40ac-b4c9-9c91353dfd31
@@ -167,6 +149,26 @@ third_party_settings:
                       augmenter_settings:
                         settings__formatter__third_party_settings__date_augmenter__instances__augmenter_settings__active_tab: ''
             weight: 3
+            additional: {  }
+          ef2dfd66-d192-41e6-9365-644e8bcf501a:
+            uuid: ef2dfd66-d192-41e6-9365-644e8bcf501a
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_links'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            weight: 4
             additional: {  }
         third_party_settings: {  }
       -
@@ -496,15 +498,6 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_event_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 50
-    region: first
   field_featured_image:
     type: entity_reference_entity_view
     label: hidden
@@ -612,6 +605,18 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 51
+    region: first
   field_organization:
     type: entity_reference_label
     label: above

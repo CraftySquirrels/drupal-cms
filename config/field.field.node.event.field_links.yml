@@ -1,0 +1,23 @@
+uuid: 75232cbb-c7cf-4c37-818e-de5929694437
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_links
+    - node.type.event
+  module:
+    - link
+id: node.event.field_links
+field_name: field_links
+entity_type: node
+bundle: event
+label: Links
+description: "Add links to this event's website."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link
