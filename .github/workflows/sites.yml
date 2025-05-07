@@ -28,7 +28,7 @@ jobs:
 
           - name: live
             path: "Sites/${{ github.repository }}/live"
-            domains: "newnew.page,live.newnew.page"
+            domains: "newnew.page,live.newnew.page,admin.newnew.page"
             git_reference: "released"
 
           - name: dev
@@ -64,4 +64,6 @@ jobs:
       - name: Status
         run: |
           cd ~/${{ matrix.path }}
-          ddev status
+          echo "```"  >> $GITHUB_STEP_SUMMARY
+          ddev status  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY      

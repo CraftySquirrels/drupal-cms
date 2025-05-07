@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# Put this at /usr/local/bin/drush to make "drush" command
+# redirect to ddev drush.
+#
+
+set -e
+if [[ -n "$SITE_ROOT" ]]; then
+  cd $SITE_ROOT
+fi
+ddev drush "${@}"

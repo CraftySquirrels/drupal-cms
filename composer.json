@@ -42,6 +42,7 @@
         "drupal/klaro": "3.0.3",
         "drupal/project_browser": "@alpha",
         "drupal/smtp": "^1.4",
+        "drupal/stage_file_proxy": "^3.1",
         "drupal/webform": "@beta",
         "drush/drush": "^13"
     },

@@ -1,0 +1,20 @@
+# File: self.site.yml
+live:
+  host: newnew.page
+  user: craftysquirrels
+  root: /home/craftysquirrels/Sites/CraftySquirrels/drupal-cms/live
+  uri: www.newnew.page
+  env-vars:
+    SITE_ROOT: /home/craftysquirrels/Sites/CraftySquirrels/drupal-cms/live
+  paths:
+    # Setup /usr/local/bin/drush as a wrapper for ddev drush.
+    drush-script: drush
+
+#'*':
+#  uri: https://${env-name}.live.prod.vancouver.wsu.edu
+#  root: /var/platform/vancouver.wsu.edu/live
+#  host: server.prod.vancouver.wsu.edu
+#  user: platform
+#  paths:
+#    drush-script: bin/ddrush
+#    files: web/files/${env-name}
