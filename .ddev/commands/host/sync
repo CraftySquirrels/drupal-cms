@@ -20,7 +20,7 @@ ddev drush sql:drop --yes
 
 echo
 echo "> drush @live sql:dump > live.sql"
-drush @live sql:dump > live.sql
+drush @live sql:dump --result-file live.sql
 
 echo
 echo "> ddev import-db"
