@@ -5,6 +5,9 @@
 ## Example: ddev sync
 
 set -e
+
+export PATH="vendor/bin:bin:$PATH"
+
 echo "Sync the newnew."
 ddev drush status
 echo ""
@@ -17,7 +20,7 @@ ddev drush sql:drop --yes
 
 echo
 echo "> drush @live sql:dump > live.sql"
-vender/bin/drush @live sql:dump > live.sql
+drush @live sql:dump > live.sql
 
 echo
 echo "> ddev import-db"
