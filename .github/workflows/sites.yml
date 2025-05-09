@@ -47,8 +47,8 @@ jobs:
           update-command: "echo 'skip update, not installed'."
 
           # Sync when name == dev
-#          sync: "${{ matrix.name == 'dev' }}"
-#          sync-command: |
+          sync: "${{ matrix.name == 'dev' || github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'import') }}"
+          sync-command: ddev sync
 #            ddev drush @live sql:dump > database.sql
 #            ddev drush sql:query --file ../database.sql
 
