@@ -43,7 +43,7 @@ jobs:
 
       - name: Preserve backup
         run: |
-          mv ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.yesterday }}
+          cp -rf ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.yesterday }}
         
       - name: Save Snapshot
         run: |
