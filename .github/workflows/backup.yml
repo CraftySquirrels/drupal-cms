@@ -22,11 +22,10 @@ jobs:
             path: "~/Sites/${{ github.repository }}/live"
             file: "~/Backups/${{ github.repository }}/snapshot.sql"
 
-          # - name: dev
-          #   path: "Sites/${{ github.repository }}/dev"
-          #   domains: "dev.newnew.page"
-          #   git_reference: "main"
-
+          - name: dev
+            path: "~/Sites/${{ github.repository }}/dev"
+            file: "~/Backups/${{ github.repository }}/snapshot.sql"
+                        
     steps:
       - name: Status
         working-directory: ${{ matrix.path }}
