@@ -22,7 +22,7 @@ jobs:
       matrix:
         include:
           - environment: live
-            path: "~/Sites/newnew.page/live"
+            path: "~/Sites/CraftySquirrels/drupal-cms/live"
             backup_path: "~/Backups/newnew.page/live"
             file: "snapshot.sql.gz"
             yesterday: "snapshot.yesterday.sql.gz"
