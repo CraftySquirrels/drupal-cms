@@ -23,11 +23,13 @@ jobs:
         include:
           - environment: live
             path: "~/Sites/${{ github.repository }}/live"
-            file: "~/Backups/${{ github.repository }}/snapshot.sql"
+            backup_path: "~/Backups/${{ github.repository }}"
+            file: "snapshot.live.sql.gz"
 
-          - name: dev
+          - environment: dev
             path: "~/Sites/${{ github.repository }}/dev"
-            file: "~/Backups/${{ github.repository }}/snapshot.sql"
+            backup_path: "~/Backups/${{ github.repository }}"
+            file: "snapshot.dev.sql.gz"
                         
     steps:
       - name: Status
@@ -46,6 +48,7 @@ jobs:
       - name: Save Snapshot
         run: |
           cd  ${{ matrix.path }}
+          mkdir -p ${{ matrix.backup_path }}/${{ matrix.file }}
           ddev export-db --file ${{ matrix.file }}
           ls -la ${{ matrix.file }}
 
