@@ -22,8 +22,8 @@ jobs:
       matrix:
         include:
           - environment: live
-            path: "~/Sites/${{ github.repository }}/live"
-            backup_path: "~/Backups/${{ github.repository }}/live"
+            path: "~/Sites/newnew.page/live"
+            backup_path: "~/Backups/newnew.page/live"
             file: "snapshot.sql.gz"
             yesterday: "snapshot.yesterday.sql.gz"
                         
