@@ -1,0 +1,49 @@
+name: Backup Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 0 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    name: Backup data
+    runs-on: craftysquirrels@server.craftysquirrels.com
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - environment: live
+            path: "~/Sites/${{ github.repository }}/live"
+            file: "~/Backups/${{ github.repository }}/snapshot.sql"
+
+          # - name: dev
+          #   path: "Sites/${{ github.repository }}/dev"
+          #   domains: "dev.newnew.page"
+          #   git_reference: "main"
+
+    steps:
+      - name: Status
+        working-directory: ${{ matrix.path }}
+        run: |
+          echo "## ddev status"  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY
+          ddev status  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY 
+          
+          echo "## drush status"  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY
+          ddev drush status  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY      
+          
+      - name: Save Snapshot
+        working-directory: ${{ matrix.path }}
+        run: |
+          ddev export-db --file ${{ matrix.file }}
+          ls -la ${{ matrix.file }}
+
