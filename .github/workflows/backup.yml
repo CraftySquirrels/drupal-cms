@@ -20,16 +20,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        environment: [live,dev]
         include:
-          - environment: live
-            path: "~/Sites/${{ github.repository }}/live"
-            backup_path: "~/Backups/${{ github.repository }}"
-            file: "snapshot.live.sql.gz"
-
-          - environment: dev
-            path: "~/Sites/${{ github.repository }}/dev"
-            backup_path: "~/Backups/${{ github.repository }}"
-            file: "snapshot.dev.sql.gz"
+          - path: "~/Sites/${{ github.repository }}/${{ matrix.environment }}"
+            backup_path: "~/Backups/${{ github.repository }}//${{ matrix.environment }}"
+            file: "snapshot.sql.gz"
+            yesterday: "snapshot.yesterday.sql.gz"
                         
     steps:
       - name: Status
@@ -44,7 +40,12 @@ jobs:
           echo "```"  >> $GITHUB_STEP_SUMMARY
           ddev drush status  >> $GITHUB_STEP_SUMMARY
           echo "```"  >> $GITHUB_STEP_SUMMARY      
+
+      - name: Preserve backup
+        run: |
+          mv ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.file }}
           
+        
       - name: Save Snapshot
         run: |
           cd  ${{ matrix.path }}
