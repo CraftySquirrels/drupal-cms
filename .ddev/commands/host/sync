@@ -9,6 +9,11 @@ set -e
 export PATH="vendor/bin:bin:$PATH"
 
 echo "Sync the newnew."
+
+echo "Hostname: $(hostname -f)"
+echo "Whoami: $(whoami)"
+echo "PWD: $(pwd)"
+
 ddev drush status
 echo ""
 echo "I am about to destroy the site listed above."
@@ -21,7 +26,7 @@ ddev drush sql:drop --yes
 # If database snapshot exists:
 BACKUP_FILE=${BACKUP_FILE:-"~/Backups/newnew.page/live/snapshot.sql.gz"}
 if [[ -f $BACKUP_FILE ]]; then
-  ddev import-db --file $DEVSHOP_BACKUP_PATH
+  ddev import-db --file $BACKUP_FILE
 else
   echo "Database backup file $BACKUP_FILE not found. Create the file or set BACKUP_FILE environment variable to a new path."
   exit 1
