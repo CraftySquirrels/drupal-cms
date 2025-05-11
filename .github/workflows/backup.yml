@@ -1,0 +1,55 @@
+name: Backup Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - data-backups
+  schedule:
+    - cron: "5 0 * * *"
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    name: Backup data
+    runs-on: craftysquirrels@server.craftysquirrels.com
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - environment: live
+            path: "~/Sites/${{ github.repository }}/live"
+            backup_path: "~/Backups/${{ github.repository }}/live"
+            file: "snapshot.sql.gz"
+            yesterday: "snapshot.yesterday.sql.gz"
+                        
+    steps:
+      - name: Status
+        run: |
+          cd  ${{ matrix.path }}
+          echo "## ddev status"  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY
+          ddev status  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY 
+          
+          echo "## drush status"  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY
+          ddev drush status  >> $GITHUB_STEP_SUMMARY
+          echo "```"  >> $GITHUB_STEP_SUMMARY      
+
+      - name: Preserve backup
+        # file won't exist the first time, so touch it,
+        run: |
+          mkdir -p ${{ matrix.backup_path }}
+          touch ${{ matrix.backup_path }}/${{ matrix.file }}
+          cp -rf ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.yesterday }}
+        
+      - name: Save Snapshot
+        run: |
+          cd  ${{ matrix.path }}
+          ddev export-db --file ${{ matrix.backup_path }}/${{ matrix.file }}
+          ls -la ${{ matrix.backup_path }}
