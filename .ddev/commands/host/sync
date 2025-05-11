@@ -19,7 +19,7 @@ echo "> drush sql:drop"
 ddev drush sql:drop --yes
 
 # If database snapshot exists:
-$BACKUP_FILE=${BACKUP_FILE:-"~/Backups/newnew.page/live/snapshot.sql.gz"}
+BACKUP_FILE=${BACKUP_FILE:-"~/Backups/newnew.page/live/snapshot.sql.gz"}
 if [[ -f $BACKUP_FILE ]]; then
   ddev import-db --file $DEVSHOP_BACKUP_PATH
 else
