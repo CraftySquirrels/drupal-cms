@@ -22,8 +22,8 @@ jobs:
       matrix:
         include:
           - environment: live
-            path: "~/Sites/${{ github.repository }}/${{ matrix.environment }}"
-            backup_path: "~/Backups/${{ github.repository }}//${{ matrix.environment }}"
+            path: "~/Sites/${{ github.repository }}/live"
+            backup_path: "~/Backups/${{ github.repository }}/live"
             file: "snapshot.sql.gz"
             yesterday: "snapshot.yesterday.sql.gz"
                         
@@ -43,13 +43,11 @@ jobs:
 
       - name: Preserve backup
         run: |
-          mv ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.file }}
-          
+          mv ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.yesterday }}
         
       - name: Save Snapshot
         run: |
           cd  ${{ matrix.path }}
-          mkdir -p ${{ matrix.backup_path }}/${{ matrix.file }}
-          ddev export-db --file ${{ matrix.file }}
-          ls -la ${{ matrix.file }}
-
+          mkdir -p ${{ matrix.backup_path }}
+          ddev export-db --file ${{ matrix.backup_path }}/${{ matrix.file }}
+          ls -la ${{ matrix.backup_path }}
