@@ -16,7 +16,7 @@ jobs:
     name: Deploy Site
     runs-on: craftysquirrels@server.craftysquirrels.com
     environment:
-      name: ${{ github.event.repository.name }}/pr${{ github.event.number }}
+      name: pr${{ github.event.number }}
       url: http://${{ env.DDEV_PROJECT_DOMAIN }}?${{ github.run_id }}
     steps:
 
