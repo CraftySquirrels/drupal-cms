@@ -2,6 +2,9 @@ name: Backup Data
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - data-backups
   schedule:
     - cron: "5 0 * * *"
 
