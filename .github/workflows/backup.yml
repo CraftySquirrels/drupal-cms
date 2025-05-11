@@ -42,7 +42,9 @@ jobs:
           echo "```"  >> $GITHUB_STEP_SUMMARY      
 
       - name: Preserve backup
+        # file won't exist the first time, so touch it,
         run: |
+          touch ${{ matrix.backup_path }}/${{ matrix.file }}
           cp -rf ${{ matrix.backup_path }}/${{ matrix.file }} ${{ matrix.backup_path }}/${{ matrix.yesterday }}
         
       - name: Save Snapshot
