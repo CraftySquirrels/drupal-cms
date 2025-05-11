@@ -18,13 +18,16 @@ sleep 3
 echo "> drush sql:drop"
 ddev drush sql:drop --yes
 
-echo
-echo "> drush @live sql:dump > live.sql"
-drush @live sql:dump > live.sql
+# If database snapshot exists:
+DEVSHOP_BACKUP_PATH=~/Backups/newnew.page/live/snapshot.sql.gz
+if [[ -f $DEVSHOP_BACKUP_PATH ]]; then
+  ddev import-db --file $DEVSHOP_BACKUP_PATH
+fi
 
-#echo
-#echo "> ddev import-db"
-#ddev import-db --file live.sql
+# @TODO:
+#  Use ENV vars and .env file for configuring paths.
+#  If on live server, create new backup.
+#  If on local, download new backup.
 
 echo
 echo "> ddev drush deploy."
