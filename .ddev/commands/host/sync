@@ -6,21 +6,51 @@
 
 set -e
 
+usage() {
+  echo NewNew Sync Command "|" ./ddev/commands/host/sync
+  echo "--skip-update   Don't run drush updates."
+}
+say() {
+  echo "sync | ${*}"
+}
+line() {
+  CHARACTER="${CHARACTER:--}"
+  COLUMNS="${COLUMNS:-$(tput cols -T xterm)}"
+  printf '%*s\n' "${COLUMNS}" '' | tr ' ' "${CHARACTER}"
+}
+
+# Command line Options
+RUN_UPDATE=true
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --help)
+          usage
+          exit
+          ;;
+
+        --skip-update)
+            RUN_UPDATE=""
+            ;;
+
+    esac
+    shift $(( $# > 0 ? 1 : 0 ))
+done
+
 export PATH="vendor/bin:bin:$PATH"
 
-echo "Sync the newnew."
+say "Sync the newnew."
 
-echo "Hostname: $(hostname -f)"
-echo "Whoami: $(whoami)"
-echo "PWD: $(pwd)"
+say "Hostname: $(hostname -f)"
+say "Whoami: $(whoami)"
+say "PWD: $(pwd)"
 
 ddev drush status
-echo ""
-echo "I am about to destroy the site listed above."
-echo "Hit CTRL-C within the next 3 seconds to abort..."
+say ""
+say "About to destroy the site listed above."
+say "Hit CTRL-C within the next 3 seconds to abort..."
 sleep 3
 
-echo "> drush sql:drop"
+say "drush sql:drop"
 ddev drush sql:drop --yes
 
 # If database snapshot exists:
@@ -32,17 +62,21 @@ ddev import-db --file $BACKUP_FILE
 #  If on live server, create new backup.
 #  If on local, download new backup.
 
-echo
-echo "> ddev drush deploy."
-ddev drush deploy
+if [[ -n $RUN_UPDATE ]]; then
+  say
+  say "ddev drush deploy."
+  ddev drush deploy
+else
+  say "Skipping updates."
+fi
 
-echo
-echo "> ddev drush en stage_file_proxy devel"
+say
+say "ddev drush en stage_file_proxy devel"
 ddev drush en stage_file_proxy devel --yes
 
-echo
-echo "> drush status"
+say
+say "drush status"
 ddev drush status
 
-echo
-echo "Sync complete! Run 'ddev launch' to open the site in a browser, or 'ddev drush uli' to get a login link."
+say
+say "Sync complete! Run 'ddev launch' to open the site in a browser, or 'ddev drush uli' to get a login link."
