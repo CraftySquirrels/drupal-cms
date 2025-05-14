@@ -27,3 +27,4 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
           sync: "${{ github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'rebuild') }}"
           sync-command: ddev sync
+          ddev-fqdns: ${{ env.DDEV_PROJECT_DOMAIN }}
