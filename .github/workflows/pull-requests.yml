@@ -6,11 +6,14 @@ on:
       sync:
         description: "Sync site data"
         type: boolean
+      pr_number:
+        description: "PR Number"
+        type: number
   pull_request:
     types: [opened, reopened, synchronize, labeled]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number }}
+  group: ${{ github.workflow }}-${{ inputs.pr_number || github.event.number }}
   cancel-in-progress: true
 
 env:
