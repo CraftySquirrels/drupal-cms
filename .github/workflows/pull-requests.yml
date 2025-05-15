@@ -1,7 +1,6 @@
 name: Pull Request Environment
 
 on:
-  issue_comment:
   pull_request:
     types: [opened, reopened, synchronize, labeled]
 
