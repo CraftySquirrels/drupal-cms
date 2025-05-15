@@ -28,7 +28,7 @@ jobs:
   deploy:
     name: Deploy Site
     runs-on: craftysquirrels@server.craftysquirrels.com
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
+    if: ${{ inputs.sync || contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
     environment:
       name: pr${{ github.event.number }}
       url: http://${{ env.DDEV_PROJECT_DOMAIN }}?${{ github.run_id }}
