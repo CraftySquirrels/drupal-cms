@@ -2,7 +2,6 @@ name: Deploy Environments
 
 on:
   workflow_dispatch:
-  pull_request:
   push:
     branches:
       - main
@@ -39,6 +38,7 @@ jobs:
     steps:
 
       - name: Deploy site
+        if: ${{ matrix.git_reference == github.ref_name }}
         uses: operations-project/site-runner-ddev@main
         with:
           git-reference: ${{ matrix.git_reference }}

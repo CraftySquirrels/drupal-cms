@@ -1,9 +1,10 @@
-# CraftySquirrels.net
+# NewNew.Page
 
 https://github.com/CraftySquirrels/drupal-cms
 
-craftysquirrels.net
+## Site
 
+https://www.newnew.page
 
 ## Server
 
