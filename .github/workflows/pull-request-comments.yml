@@ -10,7 +10,7 @@ concurrency:
 env:
   DDEV_SYNC_OPTIONS: ${{ contains(github.event.issue.labels.*.name, 'skip-update') && '--skip-update' }}
   DDEV_PROJECT_PATH: "Sites/${{ github.repository }}/pr${{ github.event.issue.number }}"
-  DDEV_PROJECT_DOMAIN: pr${{ github.event.number }}.dev.newnew.page
+  DDEV_PROJECT_DOMAIN: pr${{ github.event.issue.number }}.dev.newnew.page
 
 jobs:
   resync:
