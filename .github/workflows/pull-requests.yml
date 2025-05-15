@@ -2,7 +2,7 @@ name: Pull Request Environment
 
 on: 
   pull_request:
-    types: [opened, reopened, synchronize, labelled]
+    types: [opened, reopened, synchronize, labeled]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number }}
