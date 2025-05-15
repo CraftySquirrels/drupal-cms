@@ -1,6 +1,7 @@
 name: Pull Request Environment
 
-on: 
+on:
+  issue_comment:
   pull_request:
     types: [opened, reopened, synchronize, labeled]
 
@@ -22,7 +23,7 @@ jobs:
   deploy:
     name: Deploy Site
     runs-on: craftysquirrels@server.craftysquirrels.com
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
+    if: ${{ !github.event.issue.pull_request && contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
     environment:
       name: pr${{ github.event.number }}
       url: http://${{ env.DDEV_PROJECT_DOMAIN }}?${{ github.run_id }}
@@ -37,3 +38,11 @@ jobs:
           sync: ${{ env.DDEV_REBUILD }}
           sync-command: ddev sync ${{ env.DDEV_SYNC_OPTIONS }}
           ddev-fqdns: ${{ env.DDEV_PROJECT_DOMAIN }}
+
+  resync:
+    if: ${{ github.event.issue.pull_request && github.event.comment.body && contains(github.event.comment.body, '#sync')}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          cd ~/$DDEV_PROJECT_PATH
+          ddev sync $DDEV_SYNC_OPTIONS
