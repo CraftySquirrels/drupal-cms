@@ -12,18 +12,18 @@ env:
   DDEV_PROJECT_PATH: "Sites/${{ github.repository }}/pr${{ github.event.issue.number }}"
 
 jobs:
-  debug:
+  resync:
+    if: ${{ github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '#sync') }}
     runs-on: craftysquirrels@server.craftysquirrels.com
     steps:
+
       - name: github context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-  resync:
-    if: ${{ github.event_name == 'issue_comment' && github.event.issue.pull_request && contains(github.event.comment.body, '#sync') }}
-    runs-on: craftysquirrels@server.craftysquirrels.com
-    steps:
-      - run: |
+      - name: Sync data
+        run: |
+          
           cd ~/$DDEV_PROJECT_PATH
           ddev sync $DDEV_SYNC_OPTIONS
