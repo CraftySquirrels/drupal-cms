@@ -4,12 +4,12 @@ on:
   issue_comment:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.issue.pull_request.number }}
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
   cancel-in-progress: true
 
 env:
-  DDEV_SYNC_OPTIONS: ${{ contains(github.event.issue.pull_request.labels.*.name, 'skip-update') && '--skip-update' }}
-  DDEV_PROJECT_PATH: "Sites/${{ github.repository }}/pr${{ github.event.issue.pull_request.number }}"
+  DDEV_SYNC_OPTIONS: ${{ contains(github.event.issue.labels.*.name, 'skip-update') && '--skip-update' }}
+  DDEV_PROJECT_PATH: "Sites/${{ github.repository }}/pr${{ github.event.issue.number }}"
 
 jobs:
   debug:
