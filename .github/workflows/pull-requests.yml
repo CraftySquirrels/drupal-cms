@@ -24,7 +24,7 @@ jobs:
   deploy:
     name: Deploy Site
     runs-on: craftysquirrels@server.craftysquirrels.com
-    if: ${{ env.DDEV_REBUILD }}
+    if: env.DDEV_REBUILD
     environment:
       name: pr${{ github.event.number }}
       url: http://${{ env.DDEV_PROJECT_DOMAIN }}?${{ github.run_id }}
