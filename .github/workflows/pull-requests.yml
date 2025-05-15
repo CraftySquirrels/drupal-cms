@@ -9,6 +9,7 @@ on:
       pr_number:
         description: "PR Number"
         type: number
+        required: true
   pull_request:
     types: [opened, reopened, synchronize, labeled]
 
