@@ -11,9 +11,6 @@ env:
   DDEV_PROJECT_DOMAIN: pr${{ github.event.number }}.dev.newnew.page
   DDEV_PROJECT_PATH: "Sites/${{ github.repository }}/pr${{ github.event.number }}"
 
-  # If label "preview-environment", clone and start project.
-  DDEV_PREVIEW_ENVIRONMENT: ${{ contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
-
   # If label "rebuild", sync the site.
   DDEV_REBUILD: ${{ contains(github.event.pull_request.labels.*.name, 'rebuild') }}
 
@@ -24,7 +21,7 @@ jobs:
   deploy:
     name: Deploy Site
     runs-on: craftysquirrels@server.craftysquirrels.com
-    if: ${{ env.DDEV_PREVIEW_ENVIRONMENT }}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'preview-environment') }}
     environment:
       name: pr${{ github.event.number }}
       url: http://${{ env.DDEV_PROJECT_DOMAIN }}?${{ github.run_id }}
