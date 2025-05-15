@@ -15,7 +15,7 @@ env:
   DDEV_REBUILD: ${{ contains(github.event.pull_request.labels.*.name, 'rebuild') }}
 
   # If label "skip-update", use --skip-update
-  DDEV_SYNC_OPTIONS: ${{ contains(github.event.pull_request.labels.*.name, 'skip-update') && '--skip-update'
+  DDEV_SYNC_OPTIONS: ${{ contains(github.event.pull_request.labels.*.name, 'skip-update') && '--skip-update' }}
 
 jobs:
   deploy:
