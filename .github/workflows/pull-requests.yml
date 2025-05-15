@@ -48,3 +48,4 @@ jobs:
           sync-command: ddev sync ${{ env.DDEV_SYNC_OPTIONS }}
           ddev-fqdns: ${{ env.DDEV_PROJECT_DOMAIN }}
           path: "Sites/${{ github.repository }}/pr${{ inputs.pr_number || github.event.number }}"
+          git-reference: ${{ github.head_ref || github.ref_name }}
